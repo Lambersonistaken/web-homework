@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using RunGroopWebApp.Data.Enum;
-using RunGroopWebApp.Models;
 using webHomework.Data.Enum;
-using webHomework.Data;
 using webHomework.Models;
 
 namespace RunGroopWebApp.Data
