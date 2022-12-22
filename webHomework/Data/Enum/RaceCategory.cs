@@ -1,6 +1,11 @@
 ﻿namespace webHomework.Data.Enum
 {
-    public class RaceCategory
+    public enum RaceCategory
     {
+        Marthon,
+        Ultra,
+        FiveK,
+        TenK,
+        HalfMarathon
     }
 }
