@@ -10,7 +10,7 @@ namespace webHomework.Data
 
         }
         public DbSet<Race> Races { get; set; }
-        public DbSet<Club> clubs { get; set; }  
+        public DbSet<Club> Clubs { get; set; }  
 
         public DbSet<Address> Addresses { get; set; }
 

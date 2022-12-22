@@ -2,7 +2,7 @@
 using webHomework.Data.Enum;
 using webHomework.Models;
 
-namespace RunGroopWebApp.Data
+namespace webHomework.Data
 {
     public class Seed
     {
