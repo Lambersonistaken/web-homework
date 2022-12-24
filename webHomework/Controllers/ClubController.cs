@@ -18,5 +18,11 @@ namespace webHomework.Controllers
             List<Club> clubs = _context.Clubs.ToList();
             return View(clubs);
         }
+
+        public IActionResult Detail(int id)
+        {
+            Club club = _context.Clubs.FirstOrDefault(C => C.Id == id);
+            return View(club);
+        }
     }
 }
