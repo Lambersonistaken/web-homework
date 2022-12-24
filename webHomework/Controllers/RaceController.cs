@@ -6,7 +6,7 @@ namespace webHomework.Controllers
     {
         public IActionResult Index()
         {
-            return View();s
+            return View();
         }
     }
 }
