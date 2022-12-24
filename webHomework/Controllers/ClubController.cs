@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using webHomework.Data;
 using webHomework.Models;
 
@@ -21,7 +22,7 @@ namespace webHomework.Controllers
 
         public IActionResult Detail(int id)
         {
-            Club club = _context.Clubs.FirstOrDefault(C => C.Id == id);
+            Club club = _context.Clubs.Include(a => a.Address).FirstOrDefault(C => C.Id == id);
             return View(club);
         }
     }
