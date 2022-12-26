@@ -30,19 +30,21 @@ namespace webHomework.Repository
             return await _context.Clubs.ToListAsync();
         }
 
-        public Task<Club> GetByIdAsync(int id)
+        public async Task<Club> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Clubs.FirstOrDefaultAsync(i => i.Id == id);
+
         }
 
-        public Task<IEnumerable<Club>> GetClubByCity(string city)
+        public async Task<IEnumerable<Club>> GetClubByCity(string city)
         {
-            throw new NotImplementedException();
+            return await _context.Clubs.Where(c => c.Address.City.Contains(city)).ToListAsync();
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;
         }
 
         public bool Update(Club club)
