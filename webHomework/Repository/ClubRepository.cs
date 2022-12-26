@@ -32,7 +32,7 @@ namespace webHomework.Repository
 
         public async Task<Club> GetByIdAsync(int id)
         {
-            return await _context.Clubs.FirstOrDefaultAsync(i => i.Id == id);
+            return await _context.Clubs.Include(i => i.Address).FirstOrDefaultAsync(i => i.Id == id);
 
         }
 
@@ -49,7 +49,8 @@ namespace webHomework.Repository
 
         public bool Update(Club club)
         {
-            throw new NotImplementedException();
+            _context.Update(club);
+            return Save();
         }
     }
 }

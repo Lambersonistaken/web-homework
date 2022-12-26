@@ -36,19 +36,21 @@ namespace webHomework.Repository
             return await _context.Races.Where(c => c.Address.City.Contains(city)).ToListAsync();
         }
 
-        public Task<Race> GetByIdAsync(int id)
+        public async Task<Race> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Races.FirstOrDefaultAsync(i => i.Id == id);
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;
         }
 
         public bool Update(Race race)
         {
-            throw new NotImplementedException();
+            _context.Update(race);
+            return Save();
         }
     }
 }

@@ -1,10 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 using webHomework.Data;
+using webHomework.Interfaces;
+using webHomework.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IClubRepository, Club_Repoistory>();
+builder.Services.AddScoped<IRaceRepository, RaceRepository>();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
