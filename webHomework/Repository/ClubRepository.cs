@@ -5,11 +5,11 @@ using webHomework.Models;
 
 namespace webHomework.Repository
 {
-    public class Club_Repoistory : IClubRepository
+    public class ClubRepository : IClubRepository
     {
         private readonly ApplicationDbContext _context;
 
-        public Club_Repoistory(ApplicationDbContext context)
+        public ClubRepository(ApplicationDbContext context)
         {
             _context = context;
         }
