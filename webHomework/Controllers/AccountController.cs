@@ -24,7 +24,8 @@ namespace webHomework.Controllers
         public IActionResult Login()
         {
 
-            return View();
+            var response = new LoginViewModel();
+            return View(response);
         }
 
         [HttpPost]
