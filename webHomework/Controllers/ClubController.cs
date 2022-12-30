@@ -149,5 +149,7 @@ namespace webHomework.Controllers
             _clubRepository.Delete(clubDetails);
             return RedirectToAction("Index");
         }
+
+
     }
 }
