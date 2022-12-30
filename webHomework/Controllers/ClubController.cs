@@ -94,6 +94,9 @@ namespace webHomework.Controllers
             var userClub = await _clubRepository.GetByIdAsync(id);
 
             if(userClub != null)
+            {
+
+            
                 try
                 {
                     await _photoService.DeletePhotoAsync(userClub.Image);
@@ -119,6 +122,14 @@ namespace webHomework.Controllers
             _clubRepository.Update(club);
 
             return RedirectToAction("Index");
+        }
+
+            else
+            {
+                return View(clubVM);
+            }
+
+
         }
 
 

@@ -11,9 +11,9 @@ namespace webHomework.ViewModels
 
         public string Description { get; set; }
 
-        public string Image { get; set; }
+        public IFormFile Image { get; set; }
 
-        public string URL { get; set; }
+        public string? URL { get; set; }
 
         public int AddressId { get; set; }
 
