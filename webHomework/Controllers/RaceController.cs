@@ -36,8 +36,9 @@ namespace webHomework.Controllers
         }
         public IActionResult Create()
         {
-
-            return View();
+            var curUserId = _httpContextAccessor.HttpContext?.User.GetUserId();
+            var createRaceViewModel = new CreateRaceViewModel { AppUserId = curUserId };
+            return View(createRaceViewModel);
         }
         [HttpPost]
         public async Task<IActionResult> Create(CreateRaceViewModel raceVM)
@@ -50,6 +51,7 @@ namespace webHomework.Controllers
                     Title = raceVM.Title,
                     Description = raceVM.Description,
                     Image = result.Url.ToString(),
+                    AppUserId = raceVM.AppUserId,
                     Address = new Address
                     {
                         Street = raceVM.Address.Street,
