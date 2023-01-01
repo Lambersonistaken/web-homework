@@ -1,6 +1,6 @@
 ﻿namespace webHomework.ViewModels
 {
-    public class UserViewModel
+    public class UserDetailViewModel
     {
 
         public string Id { get; set; }
@@ -10,5 +10,6 @@
         public int? Pace { get; set; }
 
         public int? Mileage { get; set; }
+
     }
 }

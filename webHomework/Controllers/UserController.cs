@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using webHomework.Interfaces;
+using webHomework.ViewModels;
 
 namespace webHomework.Controllers
 {
@@ -13,10 +14,36 @@ namespace webHomework.Controllers
         }
 
         [HttpGet("users")]
-        public async IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             var users = await _userRepository.GetAllUsers();
-            return View();
+            List<UserViewModel> result = new List<UserViewModel>();
+            foreach (var user in users)
+            {
+                var userViewModel = new UserViewModel()
+                {
+                    Id = user.Id,
+                    UserName = user.UserName,
+                    Pace = user.Pace,
+                    Mileage = user.Mileage
+                };
+                result.Add(userViewModel);
+            }
+            return View(result);
         }
+
+        public async Task<IActionResult> Detail(string id)
+        {
+            var user = await _userRepository.GetUserById(id);
+            var userDetailViewModel = new UserDetailViewModel()
+            {
+                Id = user.Id,
+                UserName = user.UserName,
+                Pace = user.Pace,
+                Mileage = user.Mileage,
+            };
+            return View(userDetailViewModel);
+        }
+
     }
 }
