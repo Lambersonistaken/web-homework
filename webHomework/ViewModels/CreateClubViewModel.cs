@@ -16,5 +16,6 @@ namespace webHomework.ViewModels
         public IFormFile Image { get; set; }
 
         public ClubCategory ClubCategory { get; set; }
+        public string AppUserId { get; set; }
     }
 }

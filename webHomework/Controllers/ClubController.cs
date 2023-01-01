@@ -12,8 +12,9 @@ namespace webHomework.Controllers
 
         private readonly IClubRepository _clubRepository;
         private readonly IPhotoService _photoService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public ClubController(IClubRepository clubRepository, IPhotoService photoService)
+        public ClubController(IClubRepository clubRepository, IPhotoService photoService, IHttpContextAccessor httpContextAccessor)
          {
            
             _clubRepository = clubRepository;
@@ -31,10 +32,15 @@ namespace webHomework.Controllers
             return View(club);
         }
 
+
         public IActionResult Create()
         {
-            return View();
+            var curUserId = _httpContextAccessor.HttpContext.User.GetUserId();
+            var createClubViewModel = new CreateClubViewModel { AppUserId = curUserId };
+            return View(createClubViewModel);
         }
+
+
         [HttpPost]
         public async Task<IActionResult> Create(CreateClubViewModel clubVM)
         {
@@ -46,6 +52,7 @@ namespace webHomework.Controllers
                     Title = clubVM.Title,
                     Description = clubVM.Description,
                     Image = result.Url.ToString(),
+                    AppUserId = clubVM.AppUserId,
                     Address = new Address
                     {
                         Street = clubVM.Address.Street,

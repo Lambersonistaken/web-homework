@@ -13,12 +13,14 @@ namespace webHomework.Controllers
        
         private readonly IRaceRepository _raceRepository;
         private readonly IPhotoService _photoService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public RaceController(IRaceRepository raceRepository, IPhotoService photoService)
+        public RaceController(IRaceRepository raceRepository, IPhotoService photoService, IHttpContextAccessor httpContextAccessor)
         {
             
             _raceRepository = raceRepository;
             _photoService = photoService;
+            _httpContextAccessor = httpContextAccessor;
         }
 
 
@@ -34,6 +36,7 @@ namespace webHomework.Controllers
         }
         public IActionResult Create()
         {
+
             return View();
         }
         [HttpPost]
