@@ -4,7 +4,7 @@ namespace webHomework.Interfaces
 {
     public interface IClubRepository
     {
-        Task<IEnumerable<Club>> GetAll();
+        Task<IEnumerable<Club>>? GetAll();
         Task<Club> GetByIdAsync(int id);
 
         Task<Club> GetByIdAsyncNoTracking(int id);
