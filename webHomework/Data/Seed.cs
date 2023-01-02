@@ -164,7 +164,7 @@ namespace webHomework.Data
                         }
                     };
                     await userManager.CreateAsync(newAppUser, "Coding@1234?");
-                    await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
+                    await userManager.AddToRoleAsync(newAppUser, UserRoles.User);// Zonguldak!
                 }
             }
         }
