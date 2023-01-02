@@ -148,7 +148,7 @@ namespace webHomework.Data
 
                 string appUserEmail = "user@etickets.com";
 
-                var appUser = await userManager.FindByEmailAsync(appUserEmail);
+                var appUser = await userManager.FindByEmailAsync(appUserEmail); // Proje bitti
                 if (appUser == null)
                 {
                     var newAppUser = new AppUser()
